@@ -27,7 +27,7 @@
       "name": {
         "pt": "PCN Públicos"
       },
-      "minzoom": 7,
+      "minzoom": 8,
       "overpassTags": {
         "and": [
           "amenity=charging_station",
@@ -86,7 +86,7 @@
       "name": {
         "pt": "PCR e PCUR Públicos"
       },
-      "minzoom": 7,
+      "minzoom": 8,
       "overpassTags": {
         "and": [
           "amenity=charging_station",
@@ -145,7 +145,7 @@
       "name": {
         "pt": "Privados "
       },
-      "minzoom": 7,
+      "minzoom": 8,
       "overpassTags": {
         "and": [
           "amenity=charging_station",
@@ -246,7 +246,7 @@
       "name": {
         "pt": "Fora de serviço"
       },
-      "minzoom": 7,
+      "minzoom": 8,
       "overpassTags": {
         "and": [
           "disused:amenity=charging_station"
@@ -293,7 +293,7 @@
       "name": {
         "pt": "Em construção"
       },
-      "minzoom": 7,
+      "minzoom": 8,
       "overpassTags": {
         "and": [
           "construction:amenity=charging_station"
@@ -340,7 +340,7 @@
       "name": {
         "pt": "Em projecto"
       },
-      "minzoom": 7,
+      "minzoom": 8,
       "overpassTags": {
         "and": [
           "planned:amenity=charging_station"
