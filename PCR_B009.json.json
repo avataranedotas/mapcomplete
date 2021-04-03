@@ -8,7 +8,7 @@
     "pt": "Postos de carregamento"
   },
   "description": {
-    "pt": "Mapa com todos os postos de carregamento para veículos eléctricos.<br>Outros mapas:<br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/PCR_B009.json\">Apenas Postos de Carga Rápida</a>\n"
+    "pt": "Mapa com Postos de Carga Rápida.<br>Outros mapas:<br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/postos_B009.json\">Todos os postos</a>\n"
   },
   "language": [
     "pt"
@@ -27,13 +27,25 @@
       "name": {
         "pt": "Todos"
       },
-      "minzoom": 8,
+      "minzoom": 7,
       "overpassTags": {
-        "or": [
-          "amenity=charging_station",
-          "disused:amenity=charging_station",
-          "construction:amenity=charging_station",
-          "planned:amenity=charging_station"
+        "and": [
+          {
+            "or": [
+              "amenity=charging_station",
+              "disused:amenity=charging_station",
+              "construction:amenity=charging_station",
+              "planned:amenity=charging_station"
+            ]
+          },
+          {
+            "or": [
+              "socket:chademo~*",
+              "socket:type2_combo~*",
+              "socket:tesla_supercharger_ccs~*",
+              "socket:tesla_supercharger~*"
+            ]
+          }
         ]
       },
       "title": {
