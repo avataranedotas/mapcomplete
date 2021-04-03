@@ -1,14 +1,14 @@
 {
-  "id": "PostosPCR",
+  "id": "PostosServ",
   "title": {
-    "pt": "Postos de carregamento rápido",
+    "pt": "Postos de carregamento em serviço",
     "en": ""
   },
   "shortDescription": {
-    "pt": "Postos de carregamento rápido"
+    "pt": "Postos de carregamento em serviço"
   },
   "description": {
-    "pt": "Mapa com Postos de Carga Rápida<br>Outros mapas:<br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/S_B009.json\">Postos em serviço</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/PCR_B009.json\">Apenas Postos de Carga Rápida</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/FS_B009.json\">Postos fora de serviço</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/CP_B009.json\">Postos em construção e planeados</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/postos_B009.json\">Todos os postos</a><br>"
+    "pt": "Mapa com os postos de carregamento em serviço<br>Outros mapas:<br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/S_B009.json\">Postos em serviço</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/PCR_B009.json\">Apenas Postos de Carga Rápida</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/FS_B009.json\">Postos fora de serviço</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/CP_B009.json\">Postos em construção e planeados</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/postos_B009.json\">Todos os postos</a><br>"
   },
   "language": [
     "pt"
@@ -27,25 +27,10 @@
       "name": {
         "pt": "Todos"
       },
-      "minzoom": 7,
+      "minzoom": 8,
       "overpassTags": {
-        "and": [
-          {
-            "or": [
-              "amenity=charging_station",
-              "disused:amenity=charging_station",
-              "construction:amenity=charging_station",
-              "planned:amenity=charging_station"
-            ]
-          },
-          {
-            "or": [
-              "socket:chademo~*",
-              "socket:type2_combo~*",
-              "socket:tesla_supercharger_ccs~*",
-              "socket:tesla_supercharger~*"
-            ]
-          }
+        "or": [
+          "amenity=charging_station"
         ]
       },
       "title": {
