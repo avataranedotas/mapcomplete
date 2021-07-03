@@ -271,47 +271,207 @@
     },
     {
       "render": {
-        "pt": "Tomadas Tesla CCS: <b>{socket:tesla_supercharger_ccs}</b> x <b>{socket:tesla_supercharger_ccs:output}</b>"
+        "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_CCS.svg' style='width: 32px; height: 32px' /></td><td>Tomadas Tesla Supercharger CCS: <b>{socket:tesla_supercharger_ccs}</b></td></tr></tbody></table>"
       },
       "freeform": {
         "key": "socket:tesla_supercharger_ccs"
-      }
+      },
+      "mappings": [
+        {
+          "if": {
+            "and": [
+              "socket:tesla_supercharger_ccs:output~*",
+              "socket:tesla_supercharger_ccs:current~*",
+              "socket:tesla_supercharger_ccs:voltage~*"
+            ]
+          },
+          "then": {
+            "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_CCS.svg' style='width: 32px; height: 32px' /></td><td>Tomadas Tesla Supercharger CCS: <b>{socket:tesla_supercharger_ccs}</b> x <b>{socket:tesla_supercharger_ccs:output}</b> ({socket:tesla_supercharger_ccs:current}A @ {socket:tesla_supercharger_ccs:voltage}V)</td></tr></tbody></table>"
+          },
+          "hideInAnswer": true
+        },
+        {
+          "if": {
+            "and": [
+              "socket:tesla_supercharger_ccs:output~*",
+              {
+                "or": [
+                  "socket:tesla_supercharger_ccs:current=",
+                  "socket:tesla_supercharger_ccs:voltage="
+                ]
+              }
+            ]
+          },
+          "then": {
+            "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_CCS.svg' style='width: 32px; height: 32px' /></td><td>Tomadas Tesla Supercharger CCS: <b>{socket:tesla_supercharger_ccs}</b> x <b>{socket:tesla_supercharger_ccs:output}</b></td></tr></tbody></table>"
+          },
+          "hideInAnswer": true
+        }
+      ]
     },
     {
       "render": {
-        "pt": "Tomadas Tesla Supercharger: <b>{socket:tesla_supercharger}</b> x <b>{socket:tesla_supercharger:output}</b>"
+        "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_tethered.svg' style='width: 32px; height: 32px' /></td><td>Tomadas Tesla Supercharger: <b>{socket:tesla_supercharger}</b></td></tr></tbody></table>"
       },
       "freeform": {
         "key": "socket:tesla_supercharger"
-      }
+      },
+      "mappings": [
+        {
+          "if": {
+            "and": [
+              "socket:tesla_supercharger:output~*",
+              "socket:tesla_supercharger:current~*",
+              "socket:tesla_supercharger:voltage~*"
+            ]
+          },
+          "then": {
+            "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_tethered.svg' style='width: 32px; height: 32px' /></td><td>Tomadas Tesla Supercharger: <b>{socket:tesla_supercharger}</b> x <b>{socket:tesla_supercharger:output}</b> ({socket:tesla_supercharger:current}A @ {socket:tesla_supercharger:voltage}V)</td></tr></tbody></table>"
+          },
+          "hideInAnswer": true
+        },
+        {
+          "if": {
+            "and": [
+              "socket:tesla_supercharger:output~*",
+              {
+                "or": [
+                  "socket:tesla_supercharger:current=",
+                  "socket:tesla_supercharger:voltage="
+                ]
+              }
+            ]
+          },
+          "then": {
+            "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_tethered.svg' style='width: 32px; height: 32px' /></td><td>Tomadas Tesla Supercharger: <b>{socket:tesla_supercharger}</b> x <b>{socket:tesla_supercharger:output}</b></td></tr></tbody></table>"
+          },
+          "hideInAnswer": true
+        }
+      ]
     },
     {
       "render": {
-        "pt": "Tomadas ChaDeMo: <b>{socket:chademo}</b> x <b>{socket:chademo:output}</b> ({socket:chademo:current}A @ {socket:chademo:voltage}V)"
+        "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Chademo_type4.svg' style='width: 32px; height: 32px' /></td><td>Tomadas ChaDeMo: <b>{socket:chademo}</b></td></tr></tbody></table>"
       },
       "freeform": {
         "key": "socket:chademo"
-      }
+      },
+      "mappings": [
+        {
+          "if": {
+            "and": [
+              "socket:chademo:output~*",
+              "socket:chademo:current~*",
+              "socket:chademo:voltage~*"
+            ]
+          },
+          "then": {
+            "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Chademo_type4.svg' style='width: 32px; height: 32px' /></td><td>Tomadas ChaDeMo: <b>{socket:chademo}</b> x <b>{socket:chademo:output}</b> ({socket:chademo:current}A @ {socket:chademo:voltage}V)</td></tr></tbody></table>"
+          },
+          "hideInAnswer": true
+        },
+        {
+          "if": {
+            "and": [
+              "socket:chademo:output~*",
+              {
+                "or": [
+                  "socket:chademo:current=",
+                  "socket:chademo:voltage="
+                ]
+              }
+            ]
+          },
+          "then": {
+            "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Chademo_type4.svg' style='width: 32px; height: 32px' /></td><td>Tomadas ChaDeMo: <b>{socket:chademo}</b> x <b>{socket:chademo:output}</b></td></tr></tbody></table>"
+          },
+          "hideInAnswer": true
+        }
+      ]
     },
     {
       "render": {
-        "pt": "Tomadas CCS: <b>{socket:type2_combo}</b> x <b>{socket:type2_combo:output}</b> ({socket:type2_combo:current}A @ {socket:type2_combo:voltage}V)"
+        "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_CCS.svg' style='width: 32px; height: 32px' /></td><td>Tomadas CCS: <b>{socket:type2_combo}</b></td></tr></tbody></table>"
       },
       "freeform": {
         "key": "socket:type2_combo"
-      }
+      },
+      "mappings": [
+        {
+          "if": {
+            "and": [
+              "socket:type2_combo:output~*",
+              "socket:type2_combo:current~*",
+              "socket:type2_combo:voltage~*"
+            ]
+          },
+          "then": {
+            "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_CCS.svg' style='width: 32px; height: 32px' /></td><td>Tomadas CCS: <b>{socket:type2_combo}</b> x <b>{socket:type2_combo:output}</b> ({socket:type2_combo:current}A @ {socket:type2_combo:voltage}V)</td></tr></tbody></table>"
+          },
+          "hideInAnswer": true
+        },
+        {
+          "if": {
+            "and": [
+              "socket:type2_combo:output~*",
+              {
+                "or": [
+                  "socket:type2_combo:current=",
+                  "socket:type2_combo:voltage="
+                ]
+              }
+            ]
+          },
+          "then": {
+            "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_CCS.svg' style='width: 32px; height: 32px' /></td><td>Tomadas CCS: <b>{socket:type2_combo}</b> x <b>{socket:type2_combo:output}</b></td></tr></tbody></table>"
+          },
+          "hideInAnswer": true
+        }
+      ]
     },
     {
       "render": {
-        "pt": "Tomadas Type2: <b>{socket:type2}</b> x <b>{socket:type2:output}</b> ({socket:type2:current}A @ {socket:type2:voltage}V)"
+        "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_socket.svg' style='width: 32px; height: 32px' /></td><td>Tomadas Type2: <b>{socket:type2}</b></td></tr></tbody></table>"
       },
       "freeform": {
         "key": "socket:type2"
-      }
+      },
+      "mappings": [
+        {
+          "if": {
+            "and": [
+              "socket:type2:output~*",
+              "socket:type2:current~*",
+              "socket:type2:voltage~*"
+            ]
+          },
+          "then": {
+            "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_socket.svg' style='width: 32px; height: 32px' /></td><td>Tomadas Type2: <b>{socket:type2}</b> x <b>{socket:type2:output}</b> ({socket:type2:current}A @ {socket:type2:voltage}V)</td></tr></tbody></table>"
+          },
+          "hideInAnswer": true
+        },
+        {
+          "if": {
+            "and": [
+              "socket:type2:output~*",
+              {
+                "or": [
+                  "socket:type2:current=",
+                  "socket:type2:voltage="
+                ]
+              }
+            ]
+          },
+          "then": {
+            "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_socket.svg' style='width: 32px; height: 32px' /></td><td>Tomadas Type2: <b>{socket:type2}</b> x <b>{socket:type2:output}</b></td></tr></tbody></table>"
+          },
+          "hideInAnswer": true
+        }
+      ]
     },
     {
       "render": {
-        "pt": "Tomadas Type2 com cabo: <b>{socket:type2_cable}</b>"
+        "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_tethered.svg' style='width: 32px; height: 32px' /></td><td>Tomadas Type2 com cabo: <b>{socket:type2_cable}</b></td></tr></tbody></table>"
       },
       "freeform": {
         "key": "socket:type2_cable"
@@ -326,7 +486,7 @@
             ]
           },
           "then": {
-            "pt": "Tomadas Type2 com cabo: <b>{socket:type2_cable}</b> x <b>{socket:type2_cable:output}</b> ({socket:type2_cable:current}A @ {socket:type2_cable:voltage}V)"
+            "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_tethered.svg' style='width: 32px; height: 32px' /></td><td>Tomadas Type2 com cabo: <b>{socket:type2_cable}</b> x <b>{socket:type2_cable:output}</b> ({socket:type2_cable:current}A @ {socket:type2_cable:voltage}V)</td></tr></tbody></table>"
           },
           "hideInAnswer": true
         },
@@ -343,7 +503,7 @@
             ]
           },
           "then": {
-            "pt": "Tomadas Type2 com cabo: <b>{socket:type2_cable}</b> x <b>{socket:type2_cable:output}</b>"
+            "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_tethered.svg' style='width: 32px; height: 32px' /></td><td>Tomadas Type2 com cabo: <b>{socket:type2_cable}</b> x <b>{socket:type2_cable:output}</b></td></tr></tbody></table>"
           },
           "hideInAnswer": true
         }
@@ -351,11 +511,43 @@
     },
     {
       "render": {
-        "pt": "Tomadas Tesla Destination Charger: <b>{socket:tesla_destination}</b> x <b>{socket:tesla_destination:output}</b>"
+        "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_tethered.svg' style='width: 32px; height: 32px' /></td><td>Tomadas Tesla Destination Charger: <b>{socket:tesla_destination}</b></td></tr></tbody></table>"
       },
       "freeform": {
         "key": "socket:tesla_destination"
-      }
+      },
+      "mappings": [
+        {
+          "if": {
+            "and": [
+              "socket:tesla_destination:output~*",
+              "socket:tesla_destination:current~*",
+              "socket:tesla_destination:voltage~*"
+            ]
+          },
+          "then": {
+            "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_tethered.svg' style='width: 32px; height: 32px' /></td><td>Tomadas Tesla Destination Charger: <b>{socket:tesla_destination}</b> x <b>{socket:tesla_destination:output}</b> ({socket:tesla_destination:current}A @ {socket:tesla_destination:voltage}V)</td></tr></tbody></table>"
+          },
+          "hideInAnswer": true
+        },
+        {
+          "if": {
+            "and": [
+              "socket:tesla_destination:output~*",
+              {
+                "or": [
+                  "socket:tesla_destination:current=",
+                  "socket:tesla_destination:voltage="
+                ]
+              }
+            ]
+          },
+          "then": {
+            "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Type2_tethered.svg' style='width: 32px; height: 32px' /></td><td>Tomadas Tesla Destination Charger: <b>{socket:tesla_destination}</b> x <b>{socket:tesla_destination:output}</b></td></tr></tbody></table>"
+          },
+          "hideInAnswer": true
+        }
+      ]
     },
     {
       "render": {
@@ -383,7 +575,7 @@
     },
     {
       "render": {
-        "pt": "Tomadas domésticas comuns: <b>{socket:schuko}</b>"
+        "pt": "<table><tbody><tr><td><img src='https://upload.wikimedia.org/wikipedia/commons/c/c0/Schuko_plug.svg' style='width: 24px; height: 24px' /></td><td>Tomadas Domésticas: <b>{socket:schuko}</b></td></tr></tbody></table>"
       },
       "freeform": {
         "key": "socket:schuko"
@@ -567,11 +759,6 @@
           "hideInAnswer": true
         }
       ]
-    },
-    {
-      "render": {
-        "pt": "{all_tags()}"
-      }
     }
   ]
 }
