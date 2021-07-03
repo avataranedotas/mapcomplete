@@ -8,7 +8,7 @@
     "pt": "Postos de carregamento"
   },
   "description": {
-    "pt": "Mapa com todos os postos de carregamento para veículos eléctricos<br>Outros mapas:<br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/S_B009.json\">Postos em serviço</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/PCR_B009.json\">Apenas Postos de Carga Rápida</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/FS_B009.json\">Postos fora de serviço</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/CP_B009.json\">Postos em construção e planeados</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/postos_B009.json\">Todos os postos</a><br>"
+    "pt": "Mapa com todos os postos de carregamento para veículos eléctricos<br>Outros mapas:<br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/S_B009.json\">Apenas Postos em serviço</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/PCR_B009.json\">Apenas Postos de Carga Rápida</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/FS_B009.json\">Apenas Postos fora de serviço</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/CP_B009.json\">Apenas Postos em construção e planeados</a><br>-><a href=\"https://mapcomplete.osm.be/index.html?userlayout=https://raw.githubusercontent.com/avataranedotas/mapcomplete/main/postos_B009.json\">Todos os postos</a><br>"
   },
   "language": [
     "pt"
@@ -289,7 +289,7 @@
     },
     {
       "render": {
-        "pt": "Tomadas ChaDeMo: <b>{socket:chademo}</b> x <b>{socket:chademo:output}</b> ({socket:chademo:current}A @ {socket:chademo:voltage}V)"
+        "pt": "<table><tbody><tr><td><img src='https://map.openchargemap.io/assets/images/icons/connectors/Chademo_type4.svg' style='width: 32px; height: 32px' /></td><td>Tomadas ChaDeMo: <b>{socket:chademo}</b> x <b>{socket:chademo:output}</b> ({socket:chademo:current}A @ {socket:chademo:voltage}V)</td></tr></tbody></table>"
       },
       "freeform": {
         "key": "socket:chademo"
@@ -305,11 +305,43 @@
     },
     {
       "render": {
-        "pt": "Tomadas Type2: <b>{socket:type2}</b> x <b>{socket:type2:output}</b> ({socket:type2:current}A @ {socket:type2:voltage}V)"
+        "pt": "Tomadas Type2: <b>{socket:type2}</b>"
       },
       "freeform": {
         "key": "socket:type2"
-      }
+      },
+      "mappings": [
+        {
+          "if": {
+            "and": [
+              "socket:type2:output~*",
+              "socket:type2:current~*",
+              "socket:type2:voltage~*"
+            ]
+          },
+          "then": {
+            "pt": "Tomadas Type2: <b>{socket:type2}</b> x <b>{socket:type2:output}</b> ({socket:type2:current}A @ {socket:type2:voltage}V)"
+          },
+          "hideInAnswer": true
+        },
+        {
+          "if": {
+            "and": [
+              "socket:type2:output~*",
+              {
+                "or": [
+                  "socket:type2:current=",
+                  "socket:type2:voltage="
+                ]
+              }
+            ]
+          },
+          "then": {
+            "pt": "Tomadas Type2: <b>{socket:type2}</b> x <b>{socket:type2:output}</b>"
+          },
+          "hideInAnswer": true
+        }
+      ]
     },
     {
       "render": {
@@ -577,4 +609,3 @@
     }
   ]
 }
-
